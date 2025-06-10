@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Architecture Final Exam 2022 - Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .collapse-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .collapse-toggle:checked + .collapse-label + .collapse-content {
+            max-height: 1000px;
+            transition: max-height 0.5s ease-in;
+        }
+        .pipeline-cell {
+            min-width: 80px;
+            height: 60px;
+            position: relative;
+        }
+        .pipeline-arrow {
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans p-4 md:p-8 max-w-6xl mx-auto">
+    <header class="mb-8 text-center">
+        <h1 class="text-2xl md:text-3xl font-bold text-blue-700 mb-2">Computer Architecture Final Exam 2022</h1>
+        <div class="mt-4 flex flex-wrap justify-center gap-2">
+            <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Total Marks: 50</span>
+            <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Duration: 2 Hours</span>
+        </div>
+    </header>
+
+    <!-- Question 1: Multiple Choice -->
+    <section class="mb-12 bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="bg-blue-600 text-white px-6 py-4">
+            <h2 class="text-xl font-bold">Question 1: Multiple Choice (20 Marks)</h2>
+        </div>
+        <div class="p-6">
+            <p class="mb-4 text-gray-700">Choose the correct answer for each statement:</p>
+            <table class="w-full border border-gray-300 mb-4">
+                <thead class="bg-gray-200">
+                    <tr>
+                        <th class="px-4 py-2">Question</th>
+                        <th class="px-4 py-2">1</th>
+                        <th class="px-4 py-2">2</th>
+                        <th class="px-4 py-2">3</th>
+                        <th class="px-4 py-2">4</th>
+                        <th class="px-4 py-2">5</th>
+                        <th class="px-4 py-2">6</th>
+                        <th class="px-4 py-2">7</th>
+                        <th class="px-4 py-2">8</th>
+                        <th class="px-4 py-2">9</th>
+                        <th class="px-4 py-2">10</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="px-4 py-2 font-semibold">Choice</td>
+                        <td class="px-4 py-2 text-center">c</td>
+                        <td class="px-4 py-2 text-center">c</td>
+                        <td class="px-4 py-2 text-center">a</td>
+                        <td class="px-4 py-2 text-center">a</td>
+                        <td class="px-4 py-2 text-center">b</td>
+                        <td class="px-4 py-2 text-center">c</td>
+                        <td class="px-4 py-2 text-center">b</td>
+                        <td class="px-4 py-2 text-center">c</td>
+                        <td class="px-4 py-2 text-center">c</td>
+                        <td class="px-4 py-2 text-center">a</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <!-- Q1 -->
+            <div class="mb-4 border-b pb-4">
+                <input type="checkbox" id="q1-toggle" class="collapse-toggle hidden">
+                <label for="q1-toggle" class="collapse-label flex items-center justify-between cursor-pointer font-semibold">
+                    <span>1. A register capable of shifting its binary information either to the right or left is called</span>
+                    <span class="text-blue-600">▼</span>
+                </label>
+                <div class="collapse-content mt-2 pl-4">
+                    <p class="text-green-700 font-semibold">Answer: c) Shift Register</p>
+                    <p class="text-sm text-gray-600 mt-1">A shift register moves bits left or right, used in operations like multiplication/division. Other options: Parallel (simultaneous bit access), Serial (sequential), Storage (data retention).</p>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="mb-4 border-b pb-4">
+                <input type="checkbox" id="q2-toggle" class="collapse-toggle hidden">
+                <label for="q2-toggle" class="collapse-label flex items-center justify-between cursor-pointer font-semibold">
+                    <span>2. What is the content of Stack Pointer (SP)</span>
+                    <span class="text-blue-600">▼</span>
+                </label>
+                <div class="collapse-content mt-2 pl-4">
+                    <p class="text-green-700 font-semibold">Answer: c) Address of the top element of the stack</p>
+                    <p class="text-sm text-gray-600 mt-1">The SP holds the memory address of the stack’s top element. Other options: Current/next instruction addresses are held by PC, and stack size is not stored in SP.</p>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="mb-4 border-b pb-4">
+                <input type="checkbox" id="q3-toggle" class="collapse-toggle hidden">
+                <label for="q3-toggle" class="collapse-label flex items-center justify-between cursor-pointer font-semibold">
+                    <span>3. Result of XOR of a bit pattern with itself</span>
+                    <span class="text-blue-600">▼</span>
+                </label>
+                <div class="collapse-content mt-2 pl-4">
+                    <p class="text-green-700 font-semibold">Answer: a) The result is all zero bits</p>
+                    <p class="text-sm text-gray-600 mt-1">XOR of a bit with itself (e.g., 1 XOR 1 = 0, 0 XOR 0 = 0) yields 0, so the entire pattern becomes zeros. Other options are incorrect (same, ones, or reverse).</p>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="mb-4 border-b pb-4">
+                <input type="checkbox" id="q4-toggle" class="collapse-toggle hidden">
+                <label for="q4-toggle" class="collapse-label flex items-center justify-between cursor-pointer font-semibold">
+                    <span>4. Number of addresses with a 64-bit bus</span>
+                    <span class="text-blue-600">▼</span>
+                </label>
+                <div class="collapse-content mt-2 pl-4">
+                    <p class="text-green-700 font-semibold">Answer: a) 2^64</p>
+                    <p class="text-sm text-gray-600 mt-1">A 64-bit address bus can address 2^64 memory locations, as each bit combination represents a unique address.</p>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="mb-4 border-b pb-4">
+                <input type="checkbox" id="q5-toggle" class="collapse-toggle hidden">
+                <label for="q5-toggle" class="collapse-label flex items-center justify-between cursor-pointer font-semibold">
+                    <span>5. Performance calculation with new compiler</span>
+                    <span class="text-blue-600">▼</span>
+                </label>
+                <div class="collapse-content mt-2 pl-4">
+                    <p class="text-green-700 font-semibold">Answer: b) 9.9 sec</p>
+                    <div class="text-sm text-gray-600 mt-1">
+                        <p>Calculation steps:</p>
+                        <p class="font-mono mt-1">Original Time = 15 sec</p>
+                        <p class="font-mono">New Instructions = 0.6 × original</p>
+                        <p class="font-mono">CPI Increase = 1.1 × original</p>
+                        <p class="font-mono font-semibold mt-1">New Time = 15 × 0.6 × 1.1 = 9.9 sec</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="mb-4 border-b pb-4">
+                <input type="checkbox" id="q6-toggle" class="collapse-toggle hidden">
+                <label for="q6-toggle" class="collapse-label flex items-center justify-between cursor-pointer font-semibold">
+                    <span>6. Time for 'sw s0, 100(s1)' in single-cycle MIPS</span>
+                    <span class="text-blue-600">▼</span>
+                </label>
+                <div class="collapse-content mt-2 pl-4">
+                    <p class="text-green-700 font-semibold">Answer: c) 12 ps</p>
+                    <div class="text-sm text-gray-600 mt-1">
+                        <p>Latencies: Instruction Memory (3 ps), Register File-read (2 ps), ALU (4 ps), Data Memory (3 ps), Register File-write (2 ps, not used for store).</p>
+                        <p class="font-mono">Total = 3 + 2 + 4 + 3 = 12 ps</p>
+                        <p>Explanation: The sw instruction fetches the instruction, reads registers, computes the address (ALU), and writes to memory. No write-back is needed.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="mb-4 border-b pb-4">
+                <input type="checkbox" id="q7-toggle" class="collapse-toggle hidden">
+                <label for="q7-toggle" class="collapse-label flex items-center justify-between cursor-pointer font-semibold">
+                    <span>7. Speedup in pipelined MIPS vs. single-cycle</span>
+                    <span class="text-blue-600">▼</span>
+                </label>
+                <div class="collapse-content mt-2 pl-4">
+                    <p class="text-green-700 font-semibold">Answer: b) Number of stages</p>
+                    <p class="text-sm text-gray-600 mt-1">Ideal speedup in a pipelined processor equals the number of pipeline stages (e.g., 5 for MIPS), as each stage processes an instruction concurrently.</p>
+                </div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="mb-4 border-b pb-4">
+                <input type="checkbox" id="q8-toggle" class="collapse-toggle hidden">
+                <label for="q8-toggle" class="collapse-label flex items-center justify-between cursor-pointer font-semibold">
+                    <span>8. Stage for effective address calculation in lw/sw</span>
+                    <span class="text-blue-600">▼</span>
+                </label>
+                <div class="collapse-content mt-2 pl-4">
+                    <p class="text-green-700 font-semibold">Answer: c) Execute</p>
+                    <p class="text-sm text-gray-600 mt-1">The effective address (base + offset) for lw/sw is calculated in the Execute stage using the ALU.</p>
+                </div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="mb-4 border-b pb-4">
+                <input type="checkbox" id="q9-toggle" class="collapse-toggle hidden">
+                <label for="q9-toggle" class="collapse-label flex items-center justify-between cursor-pointer font-semibold">
+                    <span>9. Hazard requiring instruction wait</span>
+                    <span class="text-blue-600">▼</span>
+                </label>
+                <div class="collapse-content mt-2 pl-4">
+                    <p class="text-green-700 font-semibold">Answer: c) Data</p>
+                    <p class="text-sm text-gray-600 mt-1">Data hazards occur when an instruction waits for a previous instruction’s data read/write (e.g., RAW dependency).</p>
+                </div>
+            </div>
+
+            <!-- Q10 -->
+            <div class="mb-4">
+                <input type="checkbox" id="q10-toggle" class="collapse-toggle hidden">
+                <label for="q10-toggle" class="collapse-label flex items-center justify-between cursor-pointer font-semibold">
+                    <span>10. Unexpected events classification</span>
+                    <span class="text-blue-600">▼</span>
+                </label>
+                <div class="collapse-content mt-2 pl-4">
+                    <p class="text-green-700 font-semibold">Answer: a) Exceptions, Interrupts</p>
+                    <p class="text-sm text-gray-600 mt-1">Exceptions are internal CPU events (e.g., overflow); interrupts are external (e.g., I/O requests).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Question 2 -->
+    <section class="mb-12 bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="bg-green-600 text-white px-6 py-4">
+            <h2 class="text-xl font-bold">Question 2: MIPS-to-C Translation & Machine Code (10 Marks)</h2>
+        </div>
+        <div class="p-6">
+            <!-- Part (a) -->
+            <div class="mb-8">
+                <input type="checkbox" id="q2a-toggle" class="collapse-toggle hidden" checked>
+                <label for="q2a-toggle" class="collapse-label flex items-center justify-between cursor-pointer font-semibold text-lg mb-3">
+                    <span>Part (a): C Equivalent Code</span>
+                    <span class="text-green-600">▼</span>
+                </label>
+                <div class="collapse-content">
+                    <div class="bg-gray-50 p-4 rounded-md border border-gray-200 overflow-x-auto">
+                        <table class="w-full border border-gray-300">
+                            <thead class="bg-gray-200">
+                                <tr>
+                                    <th class="px-4 py-2 text-left">MIPS Code</th>
+                                    <th class="px-4 py-2 text-left">C Code</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="px-4 py-2 border-b font-mono">add $t0, $zero, $zero</td>
+                                    <td class="px-4 py-2 border-b font-mono">int i = 0;</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 border-b font-mono">loop1: sll $t1, $t0, 2</td>
+                                    <td class="px-4 py-2 border-b font-mono">offset = i * 4;</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 border-b font-mono">add $t2, $s0, $t1</td>
+                                    <td class="px-4 py-2 border-b font-mono">&arr1[i] = arr1 + offset;</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 border-b font-mono">sw $t1, 0($t2)</td>
+                                    <td class="px-4 py-2 border-b font-mono">arr1[i] = offset;</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 border-b font-mono">addi $t0, $t0, 1</td>
+                                    <td class="px-4 py-2 border-b font-mono">i++;</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 border-b font-mono">slt $t3, $t0, $s1</td>
+                                    <td class="px-4 py-2 border-b font-mono">cond = (i < size) ? 1 : 0;</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 font-mono">bne $t3, $zero, loop1</td>
+                                    <td class="px-4 py-2 font-mono">if (cond) goto loop1;</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="mt-3 text-sm text-gray-600"><strong>Complete C Code:</strong></p>
+                    <pre class="bg-gray-100 p-2 rounded-md font-mono">
+int i = 0;
+while (i < size) {
+    arr1[i] = i * 4;
+    i++;
+}
+                    </pre>
+                    <p class="mt-3 text-sm text-gray-600">Explanation: The MIPS code initializes i ($t0) to 0, loops until i < size ($s1), computes offset (i * 4) in $t1, calculates the address arr1 + offset in $t2, stores offset in arr1[i], and increments i.</p>
+                </div>
+            </div>
+
+            <!-- Part (b) -->
+            <div>
+                <input type="checkbox" id="q2b-toggle" class="collapse-toggle hidden" checked>
+                <label for="q2b-toggle" class="collapse-label flex items-center justify-between cursor-pointer font-semibold text-lg mb-3">
+                    <span>Part (b): Machine Code Conversion</span>
+                    <span class="text-green-600">▼</span>
+                </label>
+                <div class="collapse-content">
+                    <div class="overflow-x-auto">
+                        <table class="w-full border border-gray-300 text-sm">
+                            <thead class="bg-gray-200">
+                                <tr>
+                                    <th class="px-3 py-2 text-left">Instruction</th>
+                                    <th class="px-3 py-2 text-left">Type</th>
+                                    <th class="px-3 py-2 text-left">opcode</th>
+                                    <th class="px-3 py-2 text-left">rs</th>
+                                    <th class="px-3 py-2 text-left">rt</th>
+                                    <th class="px-3 py-2 text-left">rd</th>
+                                    <th class="px-3 py-2 text-left">shamt</th>
+                                    <th class="px-3 py-2 text-left">funct</th>
+                                    <th class="px-3 py-2 text-left">imm</th>
+                                </tr>
+                            </thead>
+                            <tbody class="font-mono">
+                                <tr class="border-b">
+                                    <td class="px-3 py-2">add $t0, $zero, $zero</td>
+                                    <td class="px-3 py-2">R</td>
+                                    <td class="px-3 py-2 text-center">0</td>
+                                    <td class="px-3 py-2 text-center">0</td>
+                                    <td class="px-3 py-2 text-center">0</td>
+                                    <td class="px-3 py-2 text-center">8</td>
+                                    <td class="px-3 py-2 text-center">0</td>
+                                    <td class="px-3 py-2 text-center">32</td>
+                                    <td class="px-3 py-2 text-center">-</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="px-3 py-2">sll $t1, $t0, 2</td>
+                                    <td class="px-3 py-2">R</td>
+                                    <td class="px-3 py-2 text-center">0</td>
+                                    <td class="px-3 py-2 text-center">0</td>
+                                    <td class="px-3 py-2 text-center">8</td>
+                                    <td class="px-3 py-2 text-center">9</td>
+                                    <td class="px-3 py-2 text-center">2</td>
+                                    <td class="px-3 py-2 text-center">0</td>
+                                    <td class="px-3 py-2 text-center">-</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="px-3 py-2">add $t2, $s0, $t1</td>
+                                    <td class="px-3 py-2">R</td>
+                                    <td class="px-3 py-2 text-center">0</td>
+                                    <td class="px-3 py-2 text-center">16</td>
+                                    <td class="px-3 py-2 text-center">9</td>
+                                    <td class="px-3 py-2 text-center">10</td>
+                                    <td class="px-3 py-2 text-center">0</td>
+                                    <td class="px-3 py-2 text-center">32</td>
+                                    <td class="px-3 py-2 text-center">-</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="px-3 py-2">sw $t1, 0($t2)</td>
+                                    <td class="px-3 py-2">I</td>
+                                    <td class="px-3 py-2 text-center">43</td>
+                                    <td class="px-3 py-2 text-center">10</td>
+                                    <td class="px-3 py-2 text-center">9</td>
+                                    <td class="px-3 py-2 text-center">-</td>
+                                    <td class="px-3 py-2 text-center">-</td>
+                                    <td class="px-3 py-2 text-center">-</td>
+                                    <td class="px-3 py-2 text-center">0</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="px-3 py-2">addi $t0, $t0, 1</td>
+                                    <td class="px-3 py-2">I</td>
+                                    <td class="px-3 py-2 text-center">8</td>
+                                    <td class="px-3 py-2 text-center">8</td>
+                                    <td class="px-3 py-2 text-center">8</td>
+                                    <td class="px-3 py-2 text-center">-</td>
+                                    <td class="px-3 py-2 text-center">-</td>
+                                    <td class="px-3 py-2 text-center">-</td>
+                                    <td class="px-3 py-2 text-center">1</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="px-3 py-2">slt $t3, $t0, $s1</td>
+                                    <td class="px-3 py-2">R</td>
+                                    <td class="px-3 py-2 text-center">0</td>
+                                    <td class="px-3 py-2 text-center">8</td>
+                                    <td class="px-3 py-2 text-center">17</td>
+                                    <td class="px-3 py-2 text-center">11</td>
+                                    <td class="px-3 py-2 text-center">0</td>
+                                    <td class="px-3 py-2 text-center">42</td>
+                                    <td class="px-3 py-2 text-center">-</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-3 py-2">bne $t3, $zero, loop1</td>
+                                    <td class="px-3 py-2">I</td>
+                                    <td class="px-3 py-2 text-center">5</td>
+                                    <td class="px-3 py-2 text-center">11</td>
+                                    <td class="px-3 py-2 text-center">0</td>
+                                    <td class="px-3 py-2 text-center">-</td>
+                                    <td class="px-3 py-2 text-center">-</td>
+                                    <td class="px-3 py-2 text-center">-</td>
+                                    <td class="px-3 py-2 text-center">-6</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-4 p-3 bg-blue-50 rounded-md border border-blue-200 text-sm">
+                        <h4 class="font-semibold text-blue-800 mb-1">Key Notes:</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Register Numbers:</strong> $t0=8, $t1=9, $t2=10, $t3=11, $s0=16, $s1=17</li>
+                            <li><strong>bne offset:</strong> -6 (jumps back 6 instructions to loop1, assuming add $t0, $zero, $zero is before loop1)</li>
+                            <li><strong>Instruction Formats:</strong> R-type (opcode=0, funct specifies operation), I-type (opcode specifies operation, imm field used).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Question 3 -->
+    <section class="bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="bg-purple-600 text-white px-6 py-4">
+            <h2 class="text-xl font-bold">Question 3: Pipelined MIPS (20 Marks)</h2>
+        </div>
+        <div class="p-6">
+            <!-- Part (1) -->
+            <div class="mb-8">
+                <input type="checkbox" id="q3a-toggle" class="collapse-toggle hidden" checked>
+                <label for="q3a-toggle" class="collapse-label flex items-center justify-between cursor-pointer font-semibold text-lg mb-3">
+                    <span>Part (1): Pipeline Diagram (No Forwarding)</span>
+                    <span class="text-purple-600">▼</span>
+                </label>
+                <div class="collapse-content">
+                    <div class="mb-4 bg-gray-50 p-3 rounded border border-gray-200">
+                        <p class="font-mono font-semibold">Instructions:</p>
+                        <p class="font-mono ml-4">1. add $s0, $t0, $t1</p>
+                        <p class="font-mono ml-4">2. nop</p>
+                        <p class="font-mono ml-4">3. nop</p>
+                        <p class="font-mono ml-4">4. sub $t2, $s0, $t3</p>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <div class="inline-block min-w-full">
+                            <!-- Pipeline Header -->
+                            <div class="flex border-b-2 border-gray-300">
+                                <div class="pipeline-cell font-semibold flex items-center justify-center border-r bg-gray-100">Cycle</div>
+                                <div class="pipeline-cell flex items-center justify-center border-r bg-gray-100">1</div>
+                                <div class="pipeline-cell flex items-center justify-center border-r bg-gray-100">2</div>
+                                <div class="pipeline-cell flex items-center justify-center border-r bg-gray-100">3</div>
+                                <div class="pipeline-cell flex items-center justify-center border-r bg-gray-100">4</div>
+                                <div class="pipeline-cell flex items-center justify-center border-r bg-gray-100">5</div>
+                                <div class="pipeline-cell flex items-center justify-center border-r bg-gray-100">6</div>
+                                <div class="pipeline-cell flex items-center justify-center bg-gray-100">7</div>
+                            </div>
+                            <!-- IF Stage -->
+                            <div class="flex border-b border-gray-200">
+                                <div class="pipeline-cell font-semibold flex items-center justify-center border-r bg-gray-50">IF</div>
+                                <div class="pipeline-cell flex items-center justify-center border-r bg-blue-100 relative">
+                                    add
+                                    <div class="pipeline-arrow">→</div>
+                                </div>
+                                <div class="pipeline-cell flex items-center justify-center border-r bg-yellow-100 relative">
+                                    nop
+                                    <div class="pipeline-arrow">→</div>
+                                </div>
+                                <div class="pipeline-cell flex items-center justify-center border-r bg-yellow-100 relative">
+                                    nop
+                                    <div class="pipeline-arrow">→</div>
+                                </div>
+                                <div class="pipeline-cell flex items-center justify-center border-r bg-blue-100 relative">
+                                    sub
+                                    <div class="pipeline-arrow">→</div>
+                                </div>
+                                <div class="pipeline-cell flex items-center justify-center border-r">-</div>
+                                <div class="pipeline-cell flex items-center justify-center border-r">-</div>
+                                <div class="pipeline-cell flex items-center justify-center">-</div>
+                            </div>
+                            <!-- ID Stage -->
+                            <div class="flex border-b border-gray-200">
+                                <div class="pipeline-cell font-semibold flex items-center justify-center border-r bg-gray-50">ID</div>
+                                <div class="pipeline-cell flex items-center justify-center border-r">-</div>
+                                <div class="pipeline-cell flex items-center justify-center border-r bg-blue-50 relative">
+                                    add
+                                    <div class="pipeline-arrow">→</div>
+                                </div>
+                                <div class="pipeline-cell flex items-center justify-center border-r bg-yellow-100 relative">
+                                    nop
+                                    <div class="pipeline-arrow">→</div>
+                                </div>
+                                <div class="pipeline-cell flex items-center justify-center border-r bg-yellow-100 relative">
+                                    nop
+                                    <div class="pipeline-arrow">→</div>
+                                </div>
+                                <div class="pipeline-cell flex items-center justify-center border-r bg-blue-100 relative">
+                                    sub
+                                    <div class="pipeline-arrow">→</div>
+                                </div>
+                                <div class="pipeline-cell flex items-center justify-center border-r">-</div>
+                                <div class="pipeline-cell flex items-center justify-center">-</div>
+                            </div>
+                            <!-- EX Stage -->
+                            <div class="flex border-b border-gray-200">
+                                <div class="pipeline-cell font-semibold flex items-center justify-center border-r bg-gray-50">EX</div>
+                                <div class="pipeline-cell flex items-center justify-center border-r">-</div>
+                                <div class="pipeline-cell flex items-center justify-center border-r">-</div>
+                                <div class="pipeline-cell flex items-center justify-center border-r bg-blue-50 relative">
+                                    add
+                                    <div class="pipeline-arrow">→</div>
+                                </div>
+                                <div class="pipeline-cell flex items-center justify-center border-r bg-yellow-100 relative">
+                                    nop
+                                    <div class="pipeline-arrow">→</div>
+                                </div>
+                                <div class="pipeline-cell flex items-center justify-center border-r bg-yellow-100 relative">
+                                    nop
+                                    <div class="pipeline-arrow">→</div>
+                                </div>
+                                <div class="pipeline-cell flex items-center justify-center border-r bg-blue-100 relative">
+                                    sub
+                                    <div class="pipeline-arrow">→</div>
+                                </div>
+                                <div class="pipeline-cell flex items-center justify-center">-</div>
+                            </div>
+                            <!-- MEM Stage -->
+                            <div class="flex border-b border-gray-200">
+                                <div class="pipeline-cell font-semibold flex items-center justify-center border-r bg-gray-50">MEM</div>
+                                <div class="pipeline-cell flex items-center justify-center border-r">-</div>
+                                <div class="pipeline-cell flex items-center justify-center border-r">-</div>
+                                <div class="pipeline-cell flex items-center justify-center border-r">-</div>
+                                <div class="pipeline-cell flex items-center justify-center border-r bg-blue-50 relative">
+                                    add
+                                    <div class="pipeline-arrow">→</div>
+                                </div>
+                                <div class="pipeline-cell flex items-center justify-center border-r bg-yellow-100 relative">
+                                    nop
+                                    <div class="pipeline-arrow">→</div>
+                                </div>
+                                <div class="pipeline-cell flex items-center justify-center border-r bg-yellow-100 relative">
+                                    nop
+                                    <div class="pipeline-arrow">→</div>
+                                </div>
+                                <div class="pipeline-cell flex items-center justify-center bg-blue-100">sub</div>
+                            </div>
+                            <!-- WB Stage -->
+                            <div class="flex">
+                                <div class="pipeline-cell font-semibold flex items-center justify-center border-r bg-gray-50">WB</div>
+                                <div class="pipeline-cell flex items-center justify-center border-r">-</div>
+                                <div class="pipeline-cell flex items-center justify-center border-r">-</div>
+                                <div class="pipeline-cell flex items-center justify-center border-r">-</div>
+                                <div class="pipeline-cell flex items-center justify-center border-r">-</div>
+                                <div class="pipeline-cell flex items-center justify-center border-r bg-blue-50 relative">
+                                    add
+                                    <div class="pipeline-arrow">→</div>
+                                </div>
+                                <div class="pipeline-cell flex items-center justify-center border-r bg-yellow-100 relative">
+                                    nop
+                                    <div class="pipeline-arrow">→</div>
+                                </div>
+                                <div class="pipeline-cell flex items-center justify-center bg-yellow-100">nop</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 p-3 bg-yellow-50 rounded-md border border-yellow-200 text-sm">
+                        <p><strong>Hazard Analysis:</strong> RAW hazard on $s0 between <span class="font-mono">add</span> (writes in WB) and <span class="font-mono">sub</span> (reads in ID). Two nops needed to wait for $s0.</p>
+                        <p class="mt-1"><strong>Solution:</strong> 2 <span class="font-mono">nop</span> instructions inserted (total cycles = 7).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Part (2) -->
+            <div class="mb-8">
+                <input type="checkbox" id="q3b-toggle" class="collapse-toggle hidden" checked>
+                <label for="q3b-toggle" class="collapse-label flex items-center justify-between cursor-pointer font-semibold text-lg mb-3">
+                    <span>Part (2): Forwarding Signals</span>
+                    <span class="text-purple-600">▼</span>
+                </label>
+                <div class="collapse-content">
+                    <div class="overflow-x-auto">
+                        <table class="w-full border border-gray-300">
+                            <thead class="bg-gray-200">
+                                <tr>
+                                    <th class="px-4 py-2">Clock Cycle</th>
+                                    <th class="px-4 py-2">1</th>
+                                    <th class="px-4 py-2">2</th>
+                                    <th class="px-4 py-2">3</th>
+                                    <th class="px-4 py-2">4</th>
+                                    <th class="px-4 py-2">5</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="px-4 py-2 font-semibold">Forward A</td>
+                                    <td class="px-4 py-2 text-center">00</td>
+                                    <td class="px-4 py-2 text-center">00</td>
+                                    <td class="px-4 py-2 text-center">10</td>
+                                    <td class="px-4 py-2 text-center">00</td>
+                                    <td class="px-4 py-2 text-center">00</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 font-semibold">Forward B</td>
+                                    <td class="px-4 py-2 text-center">00</td>
+                                    <td class="px-4 py-2 text-center">00</td>
+                                    <td class="px-4 py-2 text-center">00</td>
+                                    <td class="px-4 py-2 text-center">00</td>
+                                    <td class="px-4 py-2 text-center">00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-4 p-3 bg-blue-50 rounded-md border border-blue-200 text-sm">
+                        <p><strong>Explanation:</strong> In cycle 3, sub’s $s0 is forwarded from add’s EX stage (Forward A = 10). No forwarding for $t3 (Forward B = 00).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Part (3) & (4) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <input type="checkbox" id="q3c-toggle" class="collapse-toggle hidden" checked>
+                    <label for="q3c-toggle" class="collapse-label flex items-center justify-between cursor-pointer font-semibold text-lg mb-3">
+                        <span>Part (3): Clock Cycle Time</span>
+                        <span class="text-purple-600">▼</span>
+                    </label>
+                    <div class="collapse-content">
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200">
+                            <p class="font-mono mb-2">Stage Latencies:</p>
+                            <ul class="list-disc pl-5 mb-3">
+                                <li>IF: 120ps</li>
+                                <li>ID: 100ps</li>
+                                <li class="font-semibold">EX: 220ps</li>
+                                <li>MEM: 120ps</li>
+                                <li>WB: 100ps</li>
+                            </ul>
+                            <p class="font-semibold text-purple-700">Clock Cycle = Longest Stage = <span class="underline">220ps</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <input type="checkbox" id="q3d-toggle" class="collapse-toggle hidden" checked>
+                    <label for="q3d-toggle" class="collapse-label flex items-center justify-between cursor-pointer font-semibold text-lg mb-3">
+                        <span>Part (4): Execution Time</span>
+                        <span class="text-purple-600">▼</span>
+                    </label>
+                    <div class="collapse-content">
+                        <div class="bg-gray-50 p-4 rounded-md border border-gray-200">
+                            <p class="mb-2">Instructions: 2 (add, sub)</p>
+                            <p class="mb-2">Pipeline Stages: 5</p>
+                            <p class="mb-2">Clock Cycles: 5 + (2-1) = <strong>6 cycles</strong></p>
+                            <p class="font-semibold text-purple-700">Total Time = 6 × 220ps = <span class="underline">1320ps</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="mt-12 text-center text-sm text-gray-500">
+        <p>Computer Architecture Final Exam Solutions | FCIS ASU 2022</p>
+    </footer>
+</body>
+<script data-goatcounter="https://mahmoudsaad1307.goatcounter.com/count"
+          async src="https://gc.zgo.at/count.js"></script>
+</html>
